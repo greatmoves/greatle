@@ -33,19 +33,7 @@ function reset() {
         }
     }
 
-    numGuesses = 0;
-    word = getWord()
-    console.log(word)
-    i_index = 0;
-    guesses = document.getElementById('guesses');
-    document.addEventListener("keydown", typing);
-    // Init the rows
-    for (let index = 0; index < 5; index++) {
-        for (let y_index = 0; y_index < word.length; y_index++) {
-            guesses.rows[index].insertCell();
-            guesses.rows[index].cells[y_index].innerText = '';
-        }
-    }
+    start();
 }
 
 function checkanswer() {
@@ -88,10 +76,6 @@ function checkanswer() {
 }
 
 
-
-
-
-
 function typing(event) {
     var x = event.key;
     if(/^[a-z]$/i.test(x)) {
@@ -123,7 +107,3 @@ function typing(event) {
     
 }
 
-
-
-    
-    
