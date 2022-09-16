@@ -7,12 +7,15 @@ var word = '';
 
 start();
 
+document.getElementById("newGameButton").onmousedown = reset;
+
 function start() {
     numGuesses = 0;
     word = getWord()
     console.log(word)
     i_index = 0;
     guesses = document.getElementById('guesses');
+    document.addEventListener("keydown", typing);
     // Init the rows
     for (let index = 0; index < 5; index++) {
         for (let y_index = 0; y_index < word.length; y_index++) {
@@ -35,6 +38,7 @@ function reset() {
     console.log(word)
     i_index = 0;
     guesses = document.getElementById('guesses');
+    document.addEventListener("keydown", typing);
     // Init the rows
     for (let index = 0; index < 5; index++) {
         for (let y_index = 0; y_index < word.length; y_index++) {
@@ -77,19 +81,18 @@ function checkanswer() {
     
     numGuesses++;
     i_index = 0;
-    if(correct_guesses === word.length) {
-        //
-    } else if (numGuesses === 5) {
-        //
-    }
+    if(correct_guesses === word.length || numGuesses === 5) {
+        return true;
+    } 
 
 }
 
 
-document.getElementById("newGameButton").onmousedown = reset;
 
 
-document.addEventListener("keydown", function(event) {
+
+
+function typing(event) {
     var x = event.key;
     if(/^[a-z]$/i.test(x)) {
         try {
@@ -110,12 +113,15 @@ document.addEventListener("keydown", function(event) {
         if(i_index < word.length) {
             // do something so that the answer must be 5 letters
         }  else {
-            checkanswer();
+            let check = checkanswer();
+            if(check) {
+                this.removeEventListener('keydown',typing);
+            }
         }
         
     }
     
-});
+}
 
 
 
