@@ -1,5 +1,6 @@
 import getWord from './words.js';
 var guesses = document.getElementById('guesses');
+var solution = document.getElementById('word');
 
 var i_index = 0;
 var numGuesses = 0;
@@ -16,6 +17,7 @@ function start() {
     i_index = 0;
     guesses = document.getElementById('guesses');
     document.addEventListener("keydown", typing);
+    solution.innerText = '';
     // Init the rows
     for (let index = 0; index < 5; index++) {
         for (let y_index = 0; y_index < word.length; y_index++) {
@@ -69,7 +71,13 @@ function checkanswer() {
     
     numGuesses++;
     i_index = 0;
-    if(correct_guesses === word.length || numGuesses === 5) {
+    
+    if(correct_guesses === word.length) {
+        solution.innerText = 'Congratulations you guess the word!';
+        return true;
+    }
+    else if (numGuesses === 5) {
+        solution.innerText = `You did\'t get the word, the word was: ${word}!`;
         return true;
     } 
 
