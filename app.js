@@ -77,7 +77,7 @@ function checkanswer() {
         return true;
     }
     else if (numGuesses === 5) {
-        solution.innerText = `You did\'t get the word, the word was: ${word}!`;
+        solution.innerText = `You didn\'t get the word, the word was: ${word}!`;
         return true;
     } 
 
