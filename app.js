@@ -17,7 +17,7 @@ function start() {
     i_index = 0;
     guesses = document.getElementById('guesses');
     document.addEventListener("keydown", typing);
-    solution.innerText = '';
+    solution.innerText = '\n';
     // Init the rows
     for (let index = 0; index < 5; index++) {
         for (let y_index = 0; y_index < word.length; y_index++) {
