@@ -73,7 +73,7 @@ function checkanswer() {
     i_index = 0;
     
     if(correct_guesses === word.length) {
-        solution.innerText = 'Congratulations you guess the word!';
+        solution.innerText = 'Congratulations you guessed the word!';
         return true;
     }
     else if (numGuesses === 5) {
