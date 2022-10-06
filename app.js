@@ -55,6 +55,10 @@ function checkanswer() {
             guesses.rows[numGuesses].cells[index].style.textDecoration = 'underline green';
             result[letter]--;
             correct_guesses++; 
+        } else {
+            guesses.rows[numGuesses].cells[index].style.color = 'grey';
+            guesses.rows[numGuesses].cells[index].style.textDecoration = 'underline grey';
+
         }
         
         guesses.rows[numGuesses].cells[index].innerText = guessWord[index];
